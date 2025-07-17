@@ -111,10 +111,37 @@
             margin: 0 auto;
             padding: 0 32px;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: flex-start;
             box-sizing: border-box;
             width: 100%;
+            gap: 40px;
+        }
+        .quem-fotos {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 24px;
+            height: 100%;
+        }
+        .quem-foto {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px #0002;
+            display: block;
+        }
+        .foto-mobile {
+            display: none;
+        }
+        .quem-texto {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .conteudo-quem h1#titulo {
             color: black;
@@ -152,6 +179,10 @@
             }
             .conteudo-quem p {
                 font-size: 20px;
+            }
+            .quem-foto {
+                width: 120px;
+                height: 120px;
             }
         }
         /* Responsividade para telas pequenas */
@@ -194,6 +225,42 @@
                 margin-top: 0 !important; /* Remove sobreposição no mobile */
             }
         }
+        @media (max-width: 900px) {
+            .conteudo-quem {
+                flex-direction: column;
+                gap: 24px;
+                align-items: stretch;
+            }
+            .quem-coluna {
+                flex-direction: row;
+                justify-content: center;
+                gap: 16px;
+                margin-bottom: 16px;
+            }
+            .quem-foto {
+                width: 48vw;
+                max-width: 180px;
+                height: 48vw;
+                max-height: 180px;
+            }
+            .quem-texto {
+                align-items: center;
+                text-align: center;
+            }
+        }
+        @media (max-width: 600px) {
+            .quem-coluna {
+                flex-direction: column;
+                gap: 12px;
+                margin-bottom: 12px;
+            }
+            .quem-foto {
+                width: 80vw;
+                max-width: 240px;
+                height: 80vw;
+                max-height: 240px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -225,13 +292,31 @@
     <!-- Segunda section: Quem sou eu -->
     <section class="quem-sou-eu">
         <div class="conteudo-quem">
-            <h1 id="titulo">QUEM SOU EU?</h1>
-            <p>
-                Meu nome é Juan Gabriel Borsacchi Marques, nascido em São Paulo no Brasil. Sou estudante de Engenharia da Computação, técnico em Desenvolvimento de Sistemas e designer gráfico. Minha formação técnica e acadêmica me proporciona uma base sólida para atuar de forma versátil e criativa em diferentes áreas da tecnologia.<br><br>
-                Atuo com programação desde o desenvolvimento web até sistemas, scripts e aplicações. Tenho conhecimento em C++, C#, Java, Python, JavaScript, HTML, CSS e SQL, sempre buscando desenvolver soluções eficientes, funcionais e bem estruturadas para cada desafio.<br><br>
-                Como designer gráfico, desenvolvo identidades visuais, materiais promocionais, layouts digitais, conteúdos para redes sociais e peças impressas. Domino ferramentas como Photoshop, Illustrator, Figma, Canva e Solidworks, unindo clareza visual, propósito e estética em cada criação.<br><br>
-                Sou uma pessoa proativa, comunicativa e colaborativa. Já atuei como instrutor de informática para jovens, experiência que fortaleceu minha capacidade de ensinar, adaptar conteúdos e trabalhar em equipe.
-            </p>
+            <!-- Desktop: Fotos grandes lado a lado à esquerda do texto -->
+            <div class="quem-fotos">
+                <img src="./IMG/foto1.png" alt="Foto 1" class="quem-foto foto1">
+                <img src="./IMG/foto2.png" alt="Foto 2" class="quem-foto foto2">
+            </div>
+            <div class="quem-texto">
+                <h1 id="titulo">QUEM SOU EU?</h1>
+                <p>
+                    <!-- Mobile: Foto 1 antes do primeiro parágrafo -->
+                    <span class="foto-mobile foto1-mobile">
+                        <img src="./IMG/foto1.png" alt="Foto 1" class="quem-foto">
+                    </span>
+                    Meu nome é Juan Gabriel Borsacchi Marques, nascido em São Paulo no Brasil. Sou estudante de Engenharia da Computação, técnico em Desenvolvimento de Sistemas e designer gráfico. Minha formação técnica e acadêmica me proporciona uma base sólida para atuar de forma versátil e criativa em diferentes áreas da tecnologia.
+                    <br><br>
+                    Atuo com programação desde o desenvolvimento web até sistemas, scripts e aplicações. Tenho conhecimento em C++, C#, Java, Python, JavaScript, HTML, CSS e SQL, sempre buscando desenvolver soluções eficientes, funcionais e bem estruturadas para cada desafio.
+                    <br><br>
+                    <!-- Mobile: Foto 2 antes do terceiro parágrafo -->
+                    <span class="foto-mobile foto2-mobile">
+                        <img src="./IMG/foto2.png" alt="Foto 2" class="quem-foto">
+                    </span>
+                    Como designer gráfico, desenvolvo identidades visuais, materiais promocionais, layouts digitais, conteúdos para redes sociais e peças impressas. Domino ferramentas como Photoshop, Illustrator, Figma, Canva e Solidworks, unindo clareza visual, propósito e estética em cada criação.
+                    <br><br>
+                    Sou uma pessoa proativa, comunicativa e colaborativa. Já atuei como instrutor de informática para jovens, experiência que fortaleceu minha capacidade de ensinar, adaptar conteúdos e trabalhar em equipe.
+                </p>
+            </div>
         </div>
     </section>
 </body>
