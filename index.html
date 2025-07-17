@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,61 +9,74 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
     <style>
         /* Reset e configurações globais */
-        html, body {
+        html,
+        body {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             width: 100%;
             overflow-x: hidden;
         }
+
         body {
             font-family: 'Jura', sans-serif;
             background: #060015;
         }
+
         /* Container principal da primeira section */
         .conteudo {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 40px;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             position: relative;
             padding: 0 32px;
             box-sizing: border-box;
             width: 100%;
-            margin-bottom: 100px; /* Mais espaço abaixo do texto inicial */
+            margin-bottom: 100px;
+            /* Mais espaço abaixo do texto inicial */
         }
+
         .texto {
             flex: 1;
             min-width: 0;
         }
+
         .texto h1#titulo {
             color: white;
             font-size: 80px;
             margin: 0 0 16px 0;
             word-break: break-word;
         }
+
         .texto h2 {
             color: white;
             font-size: 41.2px;
             margin: 0 0 12px 0;
             word-break: break-word;
         }
+
         .texto h3 {
             color: white;
             font-size: 27.5px;
-            margin: 0 0 40px 0; /* Espaço extra abaixo do texto */
+            margin: 0 0 40px 0;
+            /* Espaço extra abaixo do texto */
+            max-width: 100%;
             word-break: break-word;
         }
+
         .computador-img {
             width: 60%;
             max-width: 600px;
             height: auto;
             min-width: 200px;
         }
+
         /* Luzes decorativas do topo */
         .luz-topo {
             position: absolute;
@@ -72,6 +86,7 @@
             max-width: 100px;
             height: auto;
         }
+
         .luz-central {
             position: absolute;
             top: 0;
@@ -80,6 +95,7 @@
             max-width: 100px;
             height: auto;
         }
+
         /* Luz de fundo */
         .luz-fundo {
             position: absolute;
@@ -90,6 +106,7 @@
             z-index: 1;
             pointer-events: none;
         }
+
         /* Configuração das sections */
         section {
             width: 100%;
@@ -97,17 +114,20 @@
             position: relative;
             overflow: hidden;
         }
+
         /* Segunda section: Quem sou eu */
         .quem-sou-eu {
             background-image: url(./IMG/fundo.png);
             background-size: cover;
             background-position: top center;
             padding: 60px 0;
-            margin-top: -60px; /* Sobreposição leve em desktop */
+            margin-top: -60px;
+            /* Sobreposição leve em desktop */
             z-index: 2;
         }
+
         .conteudo-quem {
-            max-width: 900px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 0 32px;
             display: flex;
@@ -116,7 +136,10 @@
             box-sizing: border-box;
             width: 100%;
             gap: 40px;
+            margin-top: 15%;
+            margin-bottom: 15%;
         }
+
         .quem-fotos {
             display: flex;
             flex-direction: column;
@@ -125,17 +148,18 @@
             gap: 24px;
             height: 100%;
         }
+
         .quem-foto {
-            width: 180px;
-            height: 180px;
+            width: 400px;
+            height: 400px;
             object-fit: cover;
-            border-radius: 16px;
-            box-shadow: 0 2px 12px #0002;
             display: block;
         }
+
         .foto-mobile {
             display: none;
         }
+
         .quem-texto {
             flex: 1;
             min-width: 0;
@@ -143,48 +167,88 @@
             flex-direction: column;
             justify-content: center;
         }
+
         .conteudo-quem h1#titulo {
             color: black;
             font-size: 80px;
             margin-bottom: 24px;
             word-break: break-word;
         }
+
         .conteudo-quem p {
             color: #222;
-            font-size: 28px;
+            font-size: 24px;
             line-height: 1.4;
             margin: 0;
             word-break: break-word;
+            text-align: justify;
         }
+
+
+        /* Botão voltar ao topo */
+        .botao-topo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-family: 'Special Gothic Expanded One', sans-serif;
+            font-size: 24px;
+            background-color: #2a1c4f;
+            border: black 5px solid;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 100%;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+            z-index: 10;
+        }
+
+        .botao-topo:hover {
+            background-color: #6d5d94;
+        }
+
         /* Responsividade para telas médias */
         @media (max-width: 1000px) {
             .conteudo {
                 gap: 20px;
             }
+
             .texto h1#titulo {
                 font-size: 48px;
             }
+
             .texto h2 {
                 font-size: 28px;
             }
+
             .texto h3 {
                 font-size: 18px;
             }
+
             .computador-img {
                 max-width: 350px;
                 width: 80%;
             }
+
             .conteudo-quem h1#titulo {
                 font-size: 48px;
             }
+
             .conteudo-quem p {
                 font-size: 20px;
             }
+
             .quem-foto {
                 width: 120px;
                 height: 120px;
             }
+            .botao-topo {
+                visibility: hidden;
+            }
         }
+
         /* Responsividade para telas pequenas */
         @media (max-width: 800px) {
             .conteudo {
@@ -194,66 +258,86 @@
                 padding: 0 10px;
                 margin-bottom: 40px;
             }
+
             .texto h1#titulo {
                 font-size: 32px;
             }
+
             .texto h2 {
                 font-size: 18px;
             }
+
             .texto h3 {
                 font-size: 14px;
             }
+
             .computador-img {
                 width: 100%;
                 max-width: 300px;
                 margin-top: 20px;
             }
+
             .conteudo-quem {
                 padding: 0 10px;
             }
+
             .conteudo-quem h1#titulo {
                 font-size: 32px;
             }
+
             .conteudo-quem p {
                 font-size: 16px;
             }
-            .luz-topo, .luz-central {
+
+            .luz-topo,
+            .luz-central {
                 min-width: 24px;
                 max-width: 50px;
             }
+
             .quem-sou-eu {
-                margin-top: 0 !important; /* Remove sobreposição no mobile */
+                margin-top: 0 !important;
+                /* Remove sobreposição no mobile */
+            }
+            .botao-topo {
+                visibility: hidden;
             }
         }
+
         @media (max-width: 900px) {
             .conteudo-quem {
                 flex-direction: column;
                 gap: 24px;
                 align-items: stretch;
             }
+
             .quem-coluna {
                 flex-direction: row-reverse;
                 justify-content: center;
                 gap: 16px;
                 margin-bottom: 16px;
             }
+
             .quem-foto {
                 width: 48vw;
                 max-width: 180px;
                 height: 48vw;
                 max-height: 180px;
             }
+
             .quem-texto {
                 align-items: center;
                 text-align: center;
             }
         }
+
         @media (max-width: 600px) {
             .quem-coluna {
                 flex-direction: column;
                 gap: 12px;
                 margin-bottom: 12px;
             }
+
             .quem-foto {
                 width: 80vw;
                 max-width: 240px;
@@ -263,6 +347,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Primeira section: Apresentação -->
     <section style="background: #060015; min-height: 100vh; padding-top: 120px;">
@@ -304,20 +389,44 @@
                     <span class="foto-mobile foto1-mobile">
                         <img src="./IMG/foto1.png" alt="Foto 1" class="quem-foto">
                     </span>
-                    Meu nome é Juan Gabriel Borsacchi Marques, nascido em São Paulo no Brasil. Sou estudante de Engenharia da Computação, técnico em Desenvolvimento de Sistemas e designer gráfico. Minha formação técnica e acadêmica me proporciona uma base sólida para atuar de forma versátil e criativa em diferentes áreas da tecnologia.
+                    Meu nome é Juan Gabriel Borsacchi Marques, nascido em São Paulo no Brasil. Sou estudante de
+                    Engenharia da Computação, técnico em Desenvolvimento de Sistemas e designer gráfico. Minha formação
+                    técnica e acadêmica me proporciona uma base sólida para atuar de forma versátil e criativa em
+                    diferentes áreas da tecnologia.
                     <br><br>
-                    Atuo com programação desde o desenvolvimento web até sistemas, scripts e aplicações. Tenho conhecimento em C++, C#, Java, Python, JavaScript, HTML, CSS e SQL, sempre buscando desenvolver soluções eficientes, funcionais e bem estruturadas para cada desafio.
+                    Atuo com programação desde o desenvolvimento web até sistemas, scripts e aplicações. Tenho
+                    conhecimento em C++, C#, Java, Python, JavaScript, HTML, CSS e SQL, sempre buscando desenvolver
+                    soluções eficientes, funcionais e bem estruturadas para cada desafio.
                     <br><br>
                     <!-- Mobile: Foto 2 antes do terceiro parágrafo -->
                     <span class="foto-mobile foto2-mobile">
                         <img src="./IMG/foto2.png" alt="Foto 2" class="quem-foto">
                     </span>
-                    Como designer gráfico, desenvolvo identidades visuais, materiais promocionais, layouts digitais, conteúdos para redes sociais e peças impressas. Domino ferramentas como Photoshop, Illustrator, Figma, Canva e Solidworks, unindo clareza visual, propósito e estética em cada criação.
+                    Como designer gráfico, desenvolvo identidades visuais, materiais promocionais, layouts digitais,
+                    conteúdos para redes sociais e peças impressas. Domino ferramentas como Photoshop, Illustrator,
+                    Figma, Canva e Solidworks, unindo clareza visual, propósito e estética em cada criação.
                     <br><br>
-                    Sou uma pessoa proativa, comunicativa e colaborativa. Já atuei como instrutor de informática para jovens, experiência que fortaleceu minha capacidade de ensinar, adaptar conteúdos e trabalhar em equipe.
+                    Sou uma pessoa proativa, comunicativa e colaborativa. Já atuei como instrutor de informática para
+                    jovens, experiência que fortaleceu minha capacidade de ensinar, adaptar conteúdos e trabalhar em
+                    equipe.
                 </p>
             </div>
         </div>
     </section>
+    <!-- Botão voltar ao topo -->
+    <button onclick="voltarAoTopo()" class="botao-topo">↑</button>
+
+    <script>
+        // Voltar para o topo ao clicar no botão
+        function voltarAoTopo() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Forçar o scroll para o topo ao recarregar
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        };
+    </script>
 </body>
+
 </html>
