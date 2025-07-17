@@ -8,46 +8,210 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
     <style>
-        @media (max-width: 800px) {
-            h1#titulo {
-                font-size: 40px;
+        html, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        body {
+            font-family: 'Jura', sans-serif;
+            background: #060015;
+        }
+        .conteudo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 32px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        .texto {
+            flex: 1;
+            min-width: 0;
+        }
+        .texto h1#titulo {
+            color: white;
+            font-size: 80px;
+            margin: 0 0 16px 0;
+            word-break: break-word;
+        }
+        .texto h2 {
+            color: white;
+            font-size: 41.2px;
+            margin: 0 0 12px 0;
+            word-break: break-word;
+        }
+        .texto h3 {
+            color: white;
+            font-size: 27.5px;
+            margin: 0;
+            word-break: break-word;
+        }
+        .computador-img {
+            width: 60%;
+            max-width: 600px;
+            height: auto;
+            min-width: 200px;
+        }
+        .luz-topo {
+            position: absolute;
+            top: 0;
+            width: 7.5vw;
+            min-width: 40px;
+            max-width: 100px;
+            height: auto;
+        }
+        .luz-central {
+            position: absolute;
+            top: 0;
+            width: 7.5vw;
+            min-width: 40px;
+            max-width: 100px;
+            height: auto;
+        }
+        .luz-fundo {
+            position: absolute;
+            top: 1%;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+            pointer-events: none;
+        }
+        section {
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Segunda section */
+        .quem-sou-eu {
+            background-image: url(./IMG/fundo.png);
+            background-size: cover;
+            background-position: center;
+            padding: 60px 0;
+            margin-top: -60px;
+            z-index: 2;
+        }
+        .conteudo-quem {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        .conteudo-quem h1#titulo {
+            color: black;
+            font-size: 80px;
+            margin-bottom: 24px;
+            word-break: break-word;
+        }
+        .conteudo-quem p {
+            color: #222;
+            font-size: 28px;
+            line-height: 1.4;
+            margin: 0;
+            word-break: break-word;
+        }
+        /* Responsivo */
+        @media (max-width: 1000px) {
+            .conteudo {
+                gap: 20px;
             }
-            h2, h3 {
-                font-size: 20px !important;
+            .texto h1#titulo {
+                font-size: 48px;
+            }
+            .texto h2 {
+                font-size: 28px;
+            }
+            .texto h3 {
+                font-size: 18px;
             }
             .computador-img {
-                width: 90% !important;
-                right: 5% !important;
-                top: 20% !important;
+                max-width: 350px;
+                width: 80%;
             }
-            div[style*="position: absolute"] {
-                width: 90vw !important;
-                left: 5% !important;
+            .conteudo-quem h1#titulo {
+                font-size: 48px;
+            }
+            .conteudo-quem p {
+                font-size: 20px;
+            }
+        }
+        @media (max-width: 800px) {
+            .conteudo {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+                padding: 0 10px;
+            }
+            .texto h1#titulo {
+                font-size: 32px;
+            }
+            .texto h2 {
+                font-size: 18px;
+            }
+            .texto h3 {
+                font-size: 14px;
+            }
+            .computador-img {
+                width: 100%;
+                max-width: 300px;
+                margin-top: 20px;
+            }
+            .conteudo-quem {
+                padding: 0 10px;
+            }
+            .conteudo-quem h1#titulo {
+                font-size: 32px;
+            }
+            .conteudo-quem p {
+                font-size: 16px;
+            }
+            .luz-topo, .luz-central {
+                min-width: 24px;
+                max-width: 50px;
             }
         }
     </style>
 </head>
-<body style="margin: 0;">
-    <section style="background: #060015;height: 1190px; width: 100%;">
-        <img src="./IMG/Group 4.png" alt="Luz baixa" width="7.5%" style="position: absolute; top: 0; left: 7.5%;">
-        <img src="./IMG/Group 5.png" alt="Luz alta" width="7.5%" style="position: absolute; top: 0; left: 27.5%;">
-        <img src="./IMG/Group 4.png" alt="Luz baixa" width="7.5%" style="position: absolute; top: 0; left: 46.25%;">
-        <img src="./IMG/Group 5.png" alt="Luz alta" width="7.5%" style="position: absolute; top: 0; right: 27.5%;">
-        <img src="./IMG/Group 4.png" alt="Luz baixa" width="7.5%" style="position: absolute; top: 0; right: 7.5%;">
-        <div style="position: absolute; top: 15%; left: 15%; width: 586.3625px;">
-        <h1 id="titulo" style="color: white; font-family: 'Jura', sans-serif; font-size: 80px;">Juan Borsacchi</h1>
-            <br>
-            <h2 style="color: white; font-family: 'Jura', sans-serif; font-size: 41.2px; position: absolute; top: 50%;">
-                Bem-vindo(a) ao meu portfólio</h2>
-            <br>
-            <h3 style="color: white; font-family: 'Jura', sans-serif; font-size: 27.5px; position: absolute; top: 75%;">
-                Aqui você encontrará uma seleção dos meus projetos, conquistas e experiências.
-                <br><br>
-                Este espaço também apresenta um pouco sobre quem sou e o que me motiva na área da tecnologia.
-            </h3>
+<body>
+    <section style="background: #060015; min-height: 100vh; padding-top: 120px;">
+        <img src="./IMG/Group 4.png" alt="Luz baixa" class="luz-topo" style="left: 7.5%;">
+        <img src="./IMG/Group 5.png" alt="Luz alta" class="luz-topo" style="left: 27.5%;">
+        <img src="./IMG/Group 4.png" alt="Luz baixa" class="luz-central" style="left: 46.25%;">
+        <img src="./IMG/Group 5.png" alt="Luz alta" class="luz-topo" style="right: 27.5%;">
+        <img src="./IMG/Group 4.png" alt="Luz baixa" class="luz-topo" style="right: 7.5%;">
+        <div class="conteudo">
+            <div class="texto">
+                <h1 id="titulo">Juan Borsacchi</h1>
+                <h2>Bem-vindo(a) ao meu portfólio</h2>
+                <h3>
+                    Aqui você encontrará uma seleção dos meus projetos, conquistas e experiências.
+                    <br><br>
+                    Este espaço também apresenta um pouco sobre quem sou e o que me motiva na área da tecnologia.
+                </h3>
+            </div>
+            <img src="./IMG/image 1.png" alt="Computador" class="computador-img">
         </div>
-        <img src="./IMG/image 1.png" alt="Computador" width="45%" class="computador-img" style="position: absolute; top: 5%; right: 0.25%;">
-        <img src="./IMG/Union.png" alt="Luz" style="position: absolute; top: 2.5%; width: 100%; height: auto;">
+        <img src="./IMG/luz.png" alt="Luz" class="luz-fundo">
+    </section>
+    <section class="quem-sou-eu">
+        <div class="conteudo-quem">
+            <h1 id="titulo">QUEM SOU EU?</h1>
+            <p>
+                Sou apaixonado por tecnologia, inovação e desafios. Busco sempre aprender e evoluir, compartilhando conhecimento e construindo soluções criativas.
+            </p>
+        </div>
     </section>
 </body>
 </html>
