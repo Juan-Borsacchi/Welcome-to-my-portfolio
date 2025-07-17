@@ -16,10 +16,10 @@ Hello! I'm **Juan Borsacchi**, a Computer Engineering student and passionate tec
 
 ## 🔧 Technologies I Work With
 
-![My Skills](https://skillicons.dev/icons?i=html,css,js,react,python,c,cpp,arduino,figma,vscode,github,linux)
+![My Skills](https://skillicons.dev/icons?i=html,css,js,bootstrap,python,cpp,cs,arduino,figma,vscode,github,linux)
 
-- **Languages:** JavaScript, Python, C/C++, HTML, CSS  
-- **Frameworks/Libraries:** React, Bootstrap  
+- **Languages:** JavaScript, Python, C++, C#, HTML, CSS  
+- **Frameworks/Libraries:** Bootstrap  
 - **Hardware:** Arduino, Sensors, Analog Projects  
 - **Tools:** GitHub, VSCode, Figma, Linux
 
