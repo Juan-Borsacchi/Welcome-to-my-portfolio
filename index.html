@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portifólio Juan Marques</title>
+    <!-- Google Fonts: Jura -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
     <style>
+        /* Reset e configurações globais */
         html, body {
             margin: 0;
             padding: 0;
@@ -19,6 +21,7 @@
             font-family: 'Jura', sans-serif;
             background: #060015;
         }
+        /* Container principal da primeira section */
         .conteudo {
             display: flex;
             align-items: center;
@@ -30,6 +33,7 @@
             padding: 0 32px;
             box-sizing: border-box;
             width: 100%;
+            margin-bottom: 100px; /* Mais espaço abaixo do texto inicial */
         }
         .texto {
             flex: 1;
@@ -50,7 +54,7 @@
         .texto h3 {
             color: white;
             font-size: 27.5px;
-            margin: 0;
+            margin: 0 0 40px 0; /* Espaço extra abaixo do texto */
             word-break: break-word;
         }
         .computador-img {
@@ -59,6 +63,7 @@
             height: auto;
             min-width: 200px;
         }
+        /* Luzes decorativas do topo */
         .luz-topo {
             position: absolute;
             top: 0;
@@ -75,6 +80,7 @@
             max-width: 100px;
             height: auto;
         }
+        /* Luz de fundo */
         .luz-fundo {
             position: absolute;
             top: 1%;
@@ -84,19 +90,20 @@
             z-index: 1;
             pointer-events: none;
         }
+        /* Configuração das sections */
         section {
             width: 100%;
             box-sizing: border-box;
             position: relative;
             overflow: hidden;
         }
-        /* Segunda section */
+        /* Segunda section: Quem sou eu */
         .quem-sou-eu {
             background-image: url(./IMG/fundo.png);
             background-size: cover;
-            background-position: center;
+            background-position: top center;
             padding: 60px 0;
-            margin-top: -60px;
+            margin-top: -60px; /* Sobreposição leve em desktop */
             z-index: 2;
         }
         .conteudo-quem {
@@ -122,7 +129,7 @@
             margin: 0;
             word-break: break-word;
         }
-        /* Responsivo */
+        /* Responsividade para telas médias */
         @media (max-width: 1000px) {
             .conteudo {
                 gap: 20px;
@@ -147,12 +154,14 @@
                 font-size: 20px;
             }
         }
+        /* Responsividade para telas pequenas */
         @media (max-width: 800px) {
             .conteudo {
                 flex-direction: column;
                 gap: 10px;
                 align-items: center;
                 padding: 0 10px;
+                margin-bottom: 40px;
             }
             .texto h1#titulo {
                 font-size: 32px;
@@ -181,16 +190,22 @@
                 min-width: 24px;
                 max-width: 50px;
             }
+            .quem-sou-eu {
+                margin-top: 0 !important; /* Remove sobreposição no mobile */
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Primeira section: Apresentação -->
     <section style="background: #060015; min-height: 100vh; padding-top: 120px;">
+        <!-- Luzes decorativas do topo -->
         <img src="./IMG/Group 4.png" alt="Luz baixa" class="luz-topo" style="left: 7.5%;">
         <img src="./IMG/Group 5.png" alt="Luz alta" class="luz-topo" style="left: 27.5%;">
         <img src="./IMG/Group 4.png" alt="Luz baixa" class="luz-central" style="left: 46.25%;">
         <img src="./IMG/Group 5.png" alt="Luz alta" class="luz-topo" style="right: 27.5%;">
         <img src="./IMG/Group 4.png" alt="Luz baixa" class="luz-topo" style="right: 7.5%;">
+        <!-- Conteúdo principal -->
         <div class="conteudo">
             <div class="texto">
                 <h1 id="titulo">Juan Borsacchi</h1>
@@ -201,15 +216,21 @@
                     Este espaço também apresenta um pouco sobre quem sou e o que me motiva na área da tecnologia.
                 </h3>
             </div>
+            <!-- Imagem do notebook -->
             <img src="./IMG/image 1.png" alt="Computador" class="computador-img">
         </div>
+        <!-- Luz de fundo decorativa -->
         <img src="./IMG/luz.png" alt="Luz" class="luz-fundo">
     </section>
+    <!-- Segunda section: Quem sou eu -->
     <section class="quem-sou-eu">
         <div class="conteudo-quem">
             <h1 id="titulo">QUEM SOU EU?</h1>
             <p>
-                Sou apaixonado por tecnologia, inovação e desafios. Busco sempre aprender e evoluir, compartilhando conhecimento e construindo soluções criativas.
+                Meu nome é Juan Gabriel Borsacchi Marques, nascido em São Paulo no Brasil. Sou estudante de Engenharia da Computação, técnico em Desenvolvimento de Sistemas e designer gráfico. Minha formação técnica e acadêmica me proporciona uma base sólida para atuar de forma versátil e criativa em diferentes áreas da tecnologia.<br><br>
+                Atuo com programação desde o desenvolvimento web até sistemas, scripts e aplicações. Tenho conhecimento em C++, C#, Java, Python, JavaScript, HTML, CSS e SQL, sempre buscando desenvolver soluções eficientes, funcionais e bem estruturadas para cada desafio.<br><br>
+                Como designer gráfico, desenvolvo identidades visuais, materiais promocionais, layouts digitais, conteúdos para redes sociais e peças impressas. Domino ferramentas como Photoshop, Illustrator, Figma, Canva e Solidworks, unindo clareza visual, propósito e estética em cada criação.<br><br>
+                Sou uma pessoa proativa, comunicativa e colaborativa. Já atuei como instrutor de informática para jovens, experiência que fortaleceu minha capacidade de ensinar, adaptar conteúdos e trabalhar em equipe.
             </p>
         </div>
     </section>
