@@ -52,7 +52,7 @@
             font-size: 81.275px;
             margin: 0 0 16px 0;
             word-break: break-word;
-            
+
         }
 
         .texto h2 {
@@ -233,18 +233,32 @@
                 width: 80%;
             }
 
+            .conteudo-quem {
+                gap: 20px;
+                padding: 0 20px;
+            }
+
             .conteudo-quem h1#titulo {
                 font-size: 48px;
+                justify-content: center;
             }
 
             .conteudo-quem p {
                 font-size: 20px;
+                padding-top: 280px;
+            }
+
+            .quem-fotos {
+                gap: 240px;
+                position: absolute;
+                left: 35%;
             }
 
             .quem-foto {
-                width: 120px;
-                height: 120px;
+                width: 300px;
+                height: 300px;
             }
+
             .botao-topo {
                 visibility: hidden;
             }
@@ -290,6 +304,13 @@
                 font-size: 16px;
             }
 
+            .quem-fotos {
+                gap: 345px;
+                position: absolute;
+                left: 20%;
+                margin-top: 15%;
+            }
+
             .luz-topo,
             .luz-central {
                 min-width: 24px;
@@ -300,6 +321,7 @@
                 margin-top: 0 !important;
                 /* Remove sobreposição no mobile */
             }
+
             .botao-topo {
                 visibility: hidden;
             }
@@ -319,16 +341,26 @@
                 margin-bottom: 16px;
             }
 
+            .quem-fotos {
+                gap: 25%;
+                left: 39%;
+                margin-top: 10%;
+            }
+
             .quem-foto {
-                width: 48vw;
+                width: 50vw;
                 max-width: 180px;
-                height: 48vw;
+                height: 50vw;
                 max-height: 180px;
             }
 
             .quem-texto {
                 align-items: center;
                 text-align: center;
+            }
+
+            .quem-texto p {
+                padding-top: 200px;
             }
         }
 
@@ -339,11 +371,32 @@
                 margin-bottom: 12px;
             }
 
+            .quem-fotos {
+                left: 21%;
+                margin-top: 13.5%;
+            }
+
             .quem-foto {
                 width: 80vw;
                 max-width: 240px;
                 height: 80vw;
                 max-height: 240px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .quem-fotos {
+                gap: 28%;
+                left: 18.5%;
+                margin-top: 15%;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .quem-fotos {
+                gap: 30%;
+                left: 14.5%;
+                margin-top: 15%;
             }
         }
     </style>
@@ -398,7 +451,9 @@
                     Atuo com programação desde o desenvolvimento web até sistemas, scripts e aplicações. Tenho
                     conhecimento em C++, C#, Java, Python, JavaScript, HTML, CSS e SQL, sempre buscando desenvolver
                     soluções eficientes, funcionais e bem estruturadas para cada desafio.
-                    <br><br>
+                </p>
+                <br><br>
+                <p>
                     <!-- Mobile: Foto 2 antes do terceiro parágrafo -->
                     <span class="foto-mobile foto2-mobile">
                         <img src="./IMG/foto2.png" alt="Foto 2" class="quem-foto">
