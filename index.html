@@ -30,7 +30,6 @@
         .conteudo {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 40px;
             max-width: 1300px;
             margin: 0 auto;
@@ -117,6 +116,7 @@
             overflow: hidden;
         }
 
+
         /* Segunda section: Quem sou eu */
         .quem-sou-eu {
             background-image: url(./IMG/fundo.png);
@@ -185,6 +185,45 @@
             text-align: justify;
         }
 
+        /* Terceira section: Projetos */
+        .projetos {
+            background-image: url(./IMG/fundo_projetos.png);
+            background-size: cover;
+            background-position: top center;
+            padding: 60px 0;
+            margin-top: -5px;
+            /* Sobreposição leve na segunda section */
+            z-index: 2;
+            background-color: #ebebeb;
+        }
+
+        .projetos-conteudo {
+            padding-top: 70px;
+        }
+
+        .projetos-lista {
+            font-size: 24px;
+            color: #000000;
+            line-height: 1.6;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .projeto{
+            flex: 0 0 28.334%;
+            box-sizing: border-box;
+            padding: 0 10px;
+            margin-right: 5%;
+            margin-bottom: 20px;
+            border: #000000 2px solid;
+            list-style: none;
+        }
+
+        .projeto img{
+            width: 400px;
+            margin-bottom: 10px;
+            background-color: aliceblue;
+        }
 
         /* Botão voltar ao topo */
         .botao-topo {
@@ -404,7 +443,7 @@
 
 <body>
     <!-- Primeira section: Apresentação -->
-    <section style="background: #060015; min-height: 100vh; padding-top: 120px;">
+    <section style="background: #060015; padding-top: 120px;">
         <!-- Luzes decorativas do topo -->
         <img src="./IMG/Group 4.png" alt="Luz baixa" class="luz-topo" style="left: 7.5%;">
         <img src="./IMG/Group 5.png" alt="Luz alta" class="luz-topo" style="left: 27.5%;">
@@ -469,8 +508,33 @@
             </div>
         </div>
     </section>
+    <section class="projetos">
+        <div class="conteudo">
+            <div class="projetos-conteudo">
+                <div class="texto">
+                    <h1 id="titulo">ÚLTIMOS PROJETOS</h1>
+                    <ul class="projetos-lista">
+                        <li class="projeto"><img src="./IMG/capa_genio.png" alt="Capa projeto Gênio Quiz ETEC"><strong>Site Pessoal (HTML, CSS, JavaScript):</strong> Desenvolvi este site para apresentar
+                            meu portfólio e compartilhar meus projetos e experiências.</li>
+                        <li class="projeto"><strong>Sistema de Gerenciamento de Tarefas (Python, SQLite):</strong> Criei um sistema
+                            simples para organizar e acompanhar tarefas diárias, com funcionalidades de adicionar,
+                            editar e excluir tarefas.</li>
+                        <li class="projeto"><strong>Jogo 2D (C# com Unity):</strong> Desenvolvi um jogo de plataforma 2D, aplicando
+                            conceitos de física, animação e design de níveis.</li>
+                        <li class="projeto"><strong>Aplicativo de Lista de Compras (Java, Android):</strong> Desenvolvi um aplicativo
+                            móvel para gerenciar listas de compras, com funcionalidades de adicionar itens, marcar como
+                            comprados e salvar listas.</li>
+                        <li class="projeto"><strong>Design de Logotipo e Identidade Visual:</strong> Criei logotipos e identidades
+                            visuais para pequenas empresas, focando em transmitir a essência da marca de forma clara e
+                            atraente.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
     <!-- Botão voltar ao topo -->
-    <button onclick="voltarAoTopo()" class="botao-topo">↑</button>
+    <!-- button onclick="voltarAoTopo()" class="botao-topo">↑</button>
 
     <script>
         // Voltar para o topo ao clicar no botão
@@ -482,7 +546,7 @@
         window.onbeforeunload = function () {
             window.scrollTo(0, 0);
         };
-    </script>
+    </script -->
 </body>
 
 </html>
