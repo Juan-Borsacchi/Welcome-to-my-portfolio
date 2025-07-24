@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
     <style>
         /* Reset e configurações globais */
         html,
@@ -38,6 +40,7 @@
             box-sizing: border-box;
             width: 100%;
             margin-bottom: 100px;
+            margin-top: 100px;
             /* Mais espaço abaixo do texto inicial */
         }
 
@@ -114,6 +117,7 @@
             box-sizing: border-box;
             position: relative;
             overflow: hidden;
+            padding-bottom: 25px;
         }
 
 
@@ -208,24 +212,75 @@
             display: flex;
             flex-wrap: wrap;
         }
-        
-        .projeto{
+
+        .projeto {
             flex: 0 0 28.334%;
             box-sizing: border-box;
             padding: 0 10px;
             margin-right: 5%;
             margin-bottom: 20px;
-            border: #000000 2px solid;
             list-style: none;
-            border-radius: 8px;
-            
-        }
-
-        .projeto img{
-            width: 400px;
-            margin-bottom: 10px;
+            border-radius: 24px;
+            box-shadow: 0 0 12px 8px rgba(115, 155, 255, 1);
             background-color: aliceblue;
         }
+
+        .imagem {
+            padding-top: 8px;
+            border-bottom: rgba(79, 110, 188, 0.75) 2px solid;
+            margin-bottom: 20px;
+            display: flex;
+        }
+
+        .projeto img {
+            width: 400px;
+            border-radius: 16px 16px 0 0;
+        }
+
+        text {
+            font-size: 24px;
+            color: #000000;
+            display: block;
+            text-align: justify;
+        }
+
+        .texto-limitado {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            max-height: 6.6em;
+            /* controla a altura máxima para 3 linhas (depende do font-size) */
+            background-color: aliceblue;
+            font-size: 26px;
+            padding: 0 10px;
+            margin-bottom: 12px;
+        }
+
+        .texto-limitado:hover {
+            -webkit-line-clamp: unset;
+            overflow: visible;
+            max-height: none;
+            background-color: aliceblue;
+            transform: translateY(-25%);
+            margin-bottom: -35%;
+            transition: transform 1s ease, margin-bottom 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            border-top: rgba(79, 110, 188, 0.75) 2px solid;
+
+        }
+
+        .texto-limitado:hover .projeto img:hover {
+            box-shadow: 0 0 12px 8px rgba(79, 110, 188, 0.75);
+            border-radius: 16px;
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
 
         /* Botão voltar ao topo */
         .botao-topo {
@@ -441,6 +496,7 @@
             }
         }
     </style>
+
 </head>
 
 <body>
@@ -516,17 +572,40 @@
                 <div class="texto">
                     <h1 id="titulo">ÚLTIMOS PROJETOS</h1>
                     <ul class="projetos-lista">
-                        <li class="projeto"><img src="./IMG/capa_genio.png" alt="Capa projeto Gênio Quiz ETEC"><strong>Site Pessoal (HTML, CSS, JavaScript):</strong> Desenvolvi este site para apresentar
-                            meu portfólio e compartilhar meus projetos e experiências.</li>
-                        <li class="projeto"><strong>Sistema de Gerenciamento de Tarefas (Python, SQLite):</strong> Criei um sistema
+                        <li class="projeto">
+                            <div class="imagem">
+                                <img src="./IMG/capa_genio.png" alt="Capa projeto Gênio Quiz ETEC">
+                            </div>
+                            <div class="texto-limitado">
+                                <strong>
+                                    GÊNIO QUIZ ETEC <span class="devicon-csharp-plain colored"></span>
+                                </strong>
+                                <text>
+                                    Desenvolvi um jogo de perguntas e respostas como um projeto enquanto cursava a ETEC,
+                                    utilizando C# e .NET Framework.
+                                    O jogo foi projetado para testar meus conhecimentos e conceitos que eu havia
+                                    aprendido
+                                    sendo educativo e divertido, com uma interface amigável e
+                                    intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
+                                </text>
+                            </div>
+                        </li>
+                        <li class="projeto"><strong>Sistema de Gerenciamento de Tarefas (Python, SQLite):</strong> Criei
+                            um
+                            sistema
                             simples para organizar e acompanhar tarefas diárias, com funcionalidades de adicionar,
                             editar e excluir tarefas.</li>
-                        <li class="projeto"><strong>Jogo 2D (C# com Unity):</strong> Desenvolvi um jogo de plataforma 2D, aplicando
+                        <li class="projeto"><strong>Jogo 2D (C# com Unity):</strong> Desenvolvi um jogo de plataforma
+                            2D,
+                            aplicando
                             conceitos de física, animação e design de níveis.</li>
-                        <li class="projeto"><strong>Aplicativo de Lista de Compras (Java, Android):</strong> Desenvolvi um aplicativo
+                        <li class="projeto"><strong>Aplicativo de Lista de Compras (Java, Android):</strong> Desenvolvi
+                            um
+                            aplicativo
                             móvel para gerenciar listas de compras, com funcionalidades de adicionar itens, marcar como
                             comprados e salvar listas.</li>
-                        <li class="projeto"><strong>Design de Logotipo e Identidade Visual:</strong> Criei logotipos e identidades
+                        <li class="projeto"><strong>Design de Logotipo e Identidade Visual:</strong> Criei logotipos e
+                            identidades
                             visuais para pequenas empresas, focando em transmitir a essência da marca de forma clara e
                             atraente.</li>
                     </ul>
@@ -536,19 +615,20 @@
 
     </section>
     <!-- Botão voltar ao topo -->
-    <!-- button onclick="voltarAoTopo()" class="botao-topo">↑</button>
+    <button onclick="voltarAoTopo()" class="botao-topo">↑</button>
 
     <script>
+
         // Voltar para o topo ao clicar no botão
         function voltarAoTopo() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Forçar o scroll para o topo ao recarregar
-        window.onbeforeunload = function () {
-            window.scrollTo(0, 0);
-        };
-    </script -->
+        //window.onbeforeunload = function () {
+        //    window.scrollTo(0, 0);
+        //};
+    </script>
 </body>
 
 </html>
