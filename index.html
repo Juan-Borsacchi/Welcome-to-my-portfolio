@@ -213,6 +213,25 @@
             flex-wrap: wrap;
         }
 
+        .projetos-lista.slide {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 24px;
+            padding: 0 8px 24px 8px;
+            scroll-behavior: smooth;
+        }
+
+        .projetos-lista::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .projetos-lista::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+
         .projeto {
             flex: 0 0 28.334%;
             box-sizing: border-box;
@@ -223,6 +242,9 @@
             border-radius: 24px;
             box-shadow: 0 0 12px 8px rgba(115, 155, 255, 1);
             background-color: aliceblue;
+            scroll-snap-align: start;
+            flex: 0 0 320px;
+            max-width: 90vw;
         }
 
         .imagem {
@@ -244,35 +266,38 @@
             text-align: justify;
         }
 
+
         .texto-limitado {
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            cursor: pointer;
-            transition: all 0.3s ease;
             max-height: 6.6em;
-            /* controla a altura máxima para 3 linhas (depende do font-size) */
-            background-color: aliceblue;
-            font-size: 26px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: max-height 0.4s ease, opacity 0.4s ease;
+            opacity: 0.9;
             padding: 0 10px;
             margin-bottom: 12px;
-        }
-
-        .texto-limitado:hover {
-            -webkit-line-clamp: unset;
-            overflow: visible;
-            max-height: none;
+            font-size: 26px;
             background-color: aliceblue;
-            transform: translateY(-25%);
-            margin-bottom: -35%;
-            transition: transform 1s ease, margin-bottom 1s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            border-top: rgba(79, 110, 188, 0.75) 2px solid;
-
+            position: relative;
         }
+
+        .texto-limitado.expandido {
+            max-height: 1000px;
+            opacity: 1;
+            border-top: rgba(79, 110, 188, 0.75) 2px solid;
+        }
+
+        .seta {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .texto-limitado.expandido .seta {
+            transform: rotate(180deg);
+        }
+
 
         .texto-limitado:hover .projeto img:hover {
             box-shadow: 0 0 12px 8px rgba(79, 110, 188, 0.75);
@@ -280,6 +305,28 @@
             transform: scale(1.05);
             transition: transform 0.3s ease;
         }
+
+        .carrossel-controles {
+            text-align: right;
+            margin: 10px 0;
+        }
+
+        .carrossel-btn {
+            background-color: #2a1c4f;
+            color: white;
+            font-size: 22px;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 12px;
+            margin-left: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carrossel-btn:hover {
+            background-color: #6d5d94;
+        }
+
 
 
         /* Botão voltar ao topo */
@@ -571,53 +618,144 @@
             <div class="projetos-conteudo">
                 <div class="texto">
                     <h1 id="titulo">ÚLTIMOS PROJETOS</h1>
-                    <ul class="projetos-lista">
+
+                    <!-- Botões do carrossel -->
+                    <div class="carrossel-controles">
+                        <button class="carrossel-btn" id="prevBtn">←</button>
+                        <button class="carrossel-btn" id="nextBtn">→</button>
+                    </div>
+
+                    <!-- Lista de projetos como carrossel -->
+                    <ul class="projetos-lista slide" id="carrosselProjetos">
                         <li class="projeto">
                             <div class="imagem">
-                                <img src="./IMG/capa_genio.png" alt="Capa projeto Gênio Quiz ETEC">
+                                <img src="./IMG/capa_genio.png" alt="Capa projeto">
                             </div>
                             <div class="texto-limitado">
-                                <strong>
-                                    GÊNIO QUIZ ETEC <span class="devicon-csharp-plain colored"></span>
-                                </strong>
+                                <span class="seta">▼</span>
+                                <strong>GÊNIO QUIZ ETEC</strong>
                                 <text>
                                     Desenvolvi um jogo de perguntas e respostas como um projeto enquanto cursava a ETEC,
-                                    utilizando C# e .NET Framework.
-                                    O jogo foi projetado para testar meus conhecimentos e conceitos que eu havia
-                                    aprendido
-                                    sendo educativo e divertido, com uma interface amigável e
-                                    intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
+                                    utilizando C# e .NET Framework. O jogo foi projetado para testar meus conhecimentos
+                                    e conceitos que eu havia aprendido, sendo educativo e divertido, com uma interface
+                                    amigável e intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
                                 </text>
                             </div>
                         </li>
-                        <li class="projeto"><strong>Sistema de Gerenciamento de Tarefas (Python, SQLite):</strong> Criei
-                            um
-                            sistema
-                            simples para organizar e acompanhar tarefas diárias, com funcionalidades de adicionar,
-                            editar e excluir tarefas.</li>
-                        <li class="projeto"><strong>Jogo 2D (C# com Unity):</strong> Desenvolvi um jogo de plataforma
-                            2D,
-                            aplicando
-                            conceitos de física, animação e design de níveis.</li>
-                        <li class="projeto"><strong>Aplicativo de Lista de Compras (Java, Android):</strong> Desenvolvi
-                            um
-                            aplicativo
-                            móvel para gerenciar listas de compras, com funcionalidades de adicionar itens, marcar como
-                            comprados e salvar listas.</li>
-                        <li class="projeto"><strong>Design de Logotipo e Identidade Visual:</strong> Criei logotipos e
-                            identidades
-                            visuais para pequenas empresas, focando em transmitir a essência da marca de forma clara e
-                            atraente.</li>
+                        <li class="projeto">
+                            <div class="imagem">
+                                <img src="./IMG/capa_genio.png" alt="Capa projeto">
+                            </div>
+                            <div class="texto-limitado">
+                                <span class="seta">▼</span>
+                                <strong>GÊNIO QUIZ ETEC</strong>
+                                <text>
+                                    Desenvolvi um jogo de perguntas e respostas como um projeto enquanto cursava a ETEC,
+                                    utilizando C# e .NET Framework. O jogo foi projetado para testar meus conhecimentos
+                                    e conceitos que eu havia aprendido, sendo educativo e divertido, com uma interface
+                                    amigável e intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
+                                </text>
+                            </div>
+                        </li>
+                        <li class="projeto">
+                            <div class="imagem">
+                                <img src="./IMG/capa_genio.png" alt="Capa projeto">
+                            </div>
+                            <div class="texto-limitado">
+                                <span class="seta">▼</span>
+                                <strong>GÊNIO QUIZ ETEC</strong>
+                                <text>
+                                    Desenvolvi um jogo de perguntas e respostas como um projeto enquanto cursava a ETEC,
+                                    utilizando C# e .NET Framework. O jogo foi projetado para testar meus conhecimentos
+                                    e conceitos que eu havia aprendido, sendo educativo e divertido, com uma interface
+                                    amigável e intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
+                                </text>
+                            </div>
+                        </li>
+                        <li class="projeto">
+                            <div class="imagem">
+                                <img src="./IMG/capa_genio.png" alt="Capa projeto">
+                            </div>
+                            <div class="texto-limitado">
+                                <span class="seta">▼</span>
+                                <strong>GÊNIO QUIZ ETEC</strong>
+                                <text>
+                                    Desenvolvi um jogo de perguntas e respostas como um projeto enquanto cursava a ETEC,
+                                    utilizando C# e .NET Framework. O jogo foi projetado para testar meus conhecimentos
+                                    e conceitos que eu havia aprendido, sendo educativo e divertido, com uma interface
+                                    amigável e intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
+                                </text>
+                            </div>
+                        </li>
+                        <li class="projeto">
+                            <div class="imagem">
+                                <img src="./IMG/capa_genio.png" alt="Capa projeto">
+                            </div>
+                            <div class="texto-limitado">
+                                <span class="seta">▼</span>
+                                <strong>GÊNIO QUIZ ETEC</strong>
+                                <text>
+                                    Desenvolvi um jogo de perguntas e respostas como um projeto enquanto cursava a ETEC,
+                                    utilizando C# e .NET Framework. O jogo foi projetado para testar meus conhecimentos
+                                    e conceitos que eu havia aprendido, sendo educativo e divertido, com uma interface
+                                    amigável e intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
+                                </text>
+                            </div>
+                        </li>
+                        <li class="projeto">
+                            <div class="imagem">
+                                <img src="./IMG/capa_genio.png" alt="Capa projeto">
+                            </div>
+                            <div class="texto-limitado">
+                                <span class="seta">▼</span>
+                                <strong>GÊNIO QUIZ ETEC</strong>
+                                <text>
+                                    Desenvolvi um jogo de perguntas e respostas como um projeto enquanto cursava a ETEC,
+                                    utilizando C# e .NET Framework. O jogo foi projetado para testar meus conhecimentos
+                                    e conceitos que eu havia aprendido, sendo educativo e divertido, com uma interface
+                                    amigável e intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
+                                </text>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
-
     </section>
     <!-- Botão voltar ao topo -->
     <button onclick="voltarAoTopo()" class="botao-topo">↑</button>
 
     <script>
+        const textos = document.querySelectorAll('.texto-limitado');
+
+        textos.forEach(texto => {
+            texto.addEventListener('click', e => {
+                e.stopPropagation(); // Impede o fechamento imediato
+                const jaAberto = texto.classList.contains('expandido');
+                textos.forEach(t => t.classList.remove('expandido'));
+                if (!jaAberto) texto.classList.add('expandido');
+            });
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('.texto-limitado')) {
+                textos.forEach(t => t.classList.remove('expandido'));
+            }
+        });
+
+        // Carrossel scroll com botões
+        const carrossel = document.getElementById('carrosselProjetos');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        prevBtn.addEventListener('click', () => {
+            carrossel.scrollBy({ left: -340, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            carrossel.scrollBy({ left: 340, behavior: 'smooth' });
+        });
+
 
         // Voltar para o topo ao clicar no botão
         function voltarAoTopo() {
@@ -626,7 +764,7 @@
 
         // Forçar o scroll para o topo ao recarregar
         //window.onbeforeunload = function () {
-        //    window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
         //};
     </script>
 </body>
