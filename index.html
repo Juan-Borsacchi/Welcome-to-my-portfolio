@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Jura&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
         /* Reset e configurações globais */
@@ -211,29 +212,12 @@
             line-height: 1.6;
             display: flex;
             flex-wrap: wrap;
+            padding-left: 0;
+            justify-content: center;
         }
-
-        .projetos-lista.slide {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 24px;
-            padding: 0 8px 24px 8px;
-            scroll-behavior: smooth;
-        }
-
-        .projetos-lista::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .projetos-lista::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
-
 
         .projeto {
-            flex: 0 0 28.334%;
+            flex: 0 0 45%;
             box-sizing: border-box;
             padding: 0 10px;
             margin-right: 5%;
@@ -242,20 +226,19 @@
             border-radius: 24px;
             box-shadow: 0 0 12px 8px rgba(115, 155, 255, 1);
             background-color: aliceblue;
-            scroll-snap-align: start;
-            flex: 0 0 320px;
-            max-width: 90vw;
         }
 
         .imagem {
             padding-top: 8px;
-            border-bottom: rgba(79, 110, 188, 0.75) 2px solid;
-            margin-bottom: 20px;
             display: flex;
+            justify-content: center;
+            width: 535px;
+            height: 270px;
         }
 
         .projeto img {
-            width: 400px;
+            width: -webkit-fill-available;
+            height: -webkit-fill-available;
             border-radius: 16px 16px 0 0;
         }
 
@@ -266,65 +249,78 @@
             text-align: justify;
         }
 
-
         .texto-limitado {
-            max-height: 6.6em;
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
             overflow: hidden;
+            text-overflow: ellipsis;
             cursor: pointer;
-            transition: max-height 0.4s ease, opacity 0.4s ease;
-            opacity: 0.9;
-            padding: 0 10px;
-            margin-bottom: 12px;
-            font-size: 26px;
+            transition: all 0.3s ease;
+            max-height: 9.5em;
+            /* controla a altura máxima para 4 linhas (depende do font-size) */
             background-color: aliceblue;
-            position: relative;
+            font-size: 26px;
+            padding: 0 10px;
+            margin-bottom: 20px;
         }
 
-        .texto-limitado.expandido {
-            max-height: 1000px;
-            opacity: 1;
+        .texto-limitado:hover {
+            -webkit-line-clamp: unset;
+            overflow: hidden;
+            max-height: none;
+            background-color: aliceblue;
+            transform: translateY(-40%);
+            margin-bottom: -28%;
+            display: flex;
+            flex-direction: column;
             border-top: rgba(79, 110, 188, 0.75) 2px solid;
+            border-radius: 0 0 24px 24px;
+            padding: 0 10px 10px
         }
 
-        .seta {
-            position: absolute;
-            top: 8px;
-            right: 10px;
-            font-size: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .texto-limitado.expandido .seta {
-            transform: rotate(180deg);
-        }
-
-
-        .texto-limitado:hover .projeto img:hover {
+        .projeto img:hover {
             box-shadow: 0 0 12px 8px rgba(79, 110, 188, 0.75);
-            border-radius: 16px;
-            transform: scale(1.05);
+            border-radius: 0 0 0 0;
+            transform: scale(1.2);
             transition: transform 0.3s ease;
         }
 
-        .carrossel-controles {
-            text-align: right;
-            margin: 10px 0;
+        .contato {
+            background: #92B1FF;
+            margin-top: -10%;
+            color: black;
+            z-index: 2;
         }
 
-        .carrossel-btn {
-            background-color: #2a1c4f;
-            color: white;
-            font-size: 22px;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 12px;
-            margin-left: 8px;
-            cursor: pointer;
-            transition: background 0.3s;
+        .contato p {
+            font-size: 24px;
+            line-height: 1.4;
+            text-align: justify;
+            max-width: max-content;
         }
 
-        .carrossel-btn:hover {
-            background-color: #6d5d94;
+        .links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            align-items: stretch;
+            align-items: flex-end;
+        }
+
+        .link {
+            display: flex;
+            text-decoration: none;
+            margin-top: 20px;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .link #icone {
+            font-size: 100px;
+            color: black;
+            text-decoration: none;
         }
 
 
@@ -465,9 +461,11 @@
                 /* Remove sobreposição no mobile */
             }
 
+
             .botao-topo {
                 visibility: hidden;
             }
+
         }
 
         @media (max-width: 900px) {
@@ -524,6 +522,45 @@
                 max-width: 240px;
                 height: 80vw;
                 max-height: 240px;
+            }
+
+            .projetos-lista {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                align-items: center;
+            }
+
+            .imagem {
+                width: max-content;
+                height: 140px;
+            }
+
+            .projeto .image:hover {
+                transform: none;
+            }
+
+            .texto-limitado text {
+                visibility: hidden;
+                margin-top: -35%;
+            }
+
+            .projeto {
+                margin-right: 0;
+            }
+
+            .conteudo p {
+                font-size: 16px;
+            }
+
+            .links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .links #icone {
+                font-size: 50px;
             }
         }
 
@@ -618,146 +655,135 @@
             <div class="projetos-conteudo">
                 <div class="texto">
                     <h1 id="titulo">ÚLTIMOS PROJETOS</h1>
-
-                    <h2>Em desenvolvimento</h2>
-
-                    <!-- Botões do carrossel 
-                    <div class="carrossel-controles">
-                        <button class="carrossel-btn" id="prevBtn">←</button>
-                        <button class="carrossel-btn" id="nextBtn">→</button>
-                    </div>
-
-                     Lista de projetos como carrossel 
-                    <ul class="projetos-lista slide" id="carrosselProjetos">
+                    <ul class="projetos-lista">
                         <li class="projeto">
                             <div class="imagem">
-                                <img src="./IMG/capa_genio.png" alt="Capa projeto">
+                                <img src="./IMG/capa_genio.png" alt="Capa projeto Gênio Quiz ETEC ">
                             </div>
+                            <hr>
                             <div class="texto-limitado">
-                                <span class="seta">▼</span>
-                                <strong>GÊNIO QUIZ ETEC</strong>
+                                <strong>
+                                    GÊNIO QUIZ ETEC <br> <span class="devicon-csharp-plain colored"></span><span
+                                        class="devicon-dotnetcore-plain colored"></span>
+                                </strong>
                                 <text>
                                     Desenvolvi um jogo de perguntas e respostas como um projeto enquanto cursava a ETEC,
-                                    utilizando C# e .NET Framework. O jogo foi projetado para testar meus conhecimentos
-                                    e conceitos que eu havia aprendido, sendo educativo e divertido, com uma interface
-                                    amigável e intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
+                                    utilizando C# e .NET Framework.
+                                    O jogo foi projetado para testar meus conhecimentos e conceitos que eu havia
+                                    aprendido
+                                    sendo educativo e divertido, com uma interface amigável e
+                                    intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
                                 </text>
                             </div>
                         </li>
                         <li class="projeto">
                             <div class="imagem">
-                                <img src="./IMG/capa_genio.png" alt="Capa projeto">
+                                <img src="./IMG/dab.png" alt="Print tela de Sistema Web E-Commerce">
                             </div>
+                            <hr>
                             <div class="texto-limitado">
-                                <span class="seta">▼</span>
-                                <strong>GÊNIO QUIZ ETEC</strong>
+                                <strong class="projeto-titulo">
+                                    SISTEMA WEB E-COMMERCE <br> <span class="devicon-html5-plain colored"></span><span
+                                        class="devicon-css3-plain colored"></span><span
+                                        class="devicon-javascript-plain colored"></span><span
+                                        class="devicon-php-plain colored"></span><span
+                                        class="devicon-threejs-original colored"></span><span
+                                        class="devicon-mysql-plain colored"></span>
+                                </strong>
                                 <text>
-                                    Desenvolvi um jogo de perguntas e respostas como um projeto enquanto cursava a ETEC,
-                                    utilizando C# e .NET Framework. O jogo foi projetado para testar meus conhecimentos
-                                    e conceitos que eu havia aprendido, sendo educativo e divertido, com uma interface
-                                    amigável e intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
+                                    TCC do curso técnico em Desenvolvimento de Sistemas, onde desenvolvi um e-commerce
+                                    completo. Uma das principais funcionalidades foi a personalização de produtos, como
+                                    canecas, com visualização 3D interativa usando Three.js. O sistema foi construído
+                                    com HTML, CSS, JavaScript, PHP e MySQL, integrando personalização e gestão de
+                                    pedidos.
                                 </text>
                             </div>
                         </li>
                         <li class="projeto">
                             <div class="imagem">
-                                <img src="./IMG/capa_genio.png" alt="Capa projeto">
+                                <img src="./IMG/carrinho.jpg" alt="Foto do projeto veiculo seguidor de linha">
                             </div>
+                            <hr>
                             <div class="texto-limitado">
-                                <span class="seta">▼</span>
-                                <strong>GÊNIO QUIZ ETEC</strong>
+                                <strong class="projeto-titulo">
+                                    VEICULO SEGUIDOR DE LINHA <br>
+                                </strong>
                                 <text>
-                                    Desenvolvi um jogo de perguntas e respostas como um projeto enquanto cursava a ETEC,
-                                    utilizando C# e .NET Framework. O jogo foi projetado para testar meus conhecimentos
-                                    e conceitos que eu havia aprendido, sendo educativo e divertido, com uma interface
-                                    amigável e intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
+                                    Projeto do 1º semestre da faculdade, onde desenvolvi um veículo capaz de seguir
+                                    trajetos usando sensores infravermelhos. Montei e soldei manualmente o circuito com
+                                    resistores, LEDs, fototransistores, capacitores, diodos e motores. Para
+                                    personalizar, criei um design inspirado no Homem de Ferro.
+                                    Créditos à Marvel Comics.
                                 </text>
                             </div>
                         </li>
                         <li class="projeto">
                             <div class="imagem">
-                                <img src="./IMG/capa_genio.png" alt="Capa projeto">
+                                <img src="./IMG/dashboard.png" alt="Print tela de dashboard excel com matplotlib">
                             </div>
+                            <hr>
                             <div class="texto-limitado">
-                                <span class="seta">▼</span>
-                                <strong>GÊNIO QUIZ ETEC</strong>
+                                <strong class="projeto-titulo">
+                                    DASHBOARD EXCEL MATPLOTLIB <br> <span
+                                        class="devicon-python-plain colored"></span><span
+                                        class="devicon-matplotlib-plain colored"></span><span
+                                        class="devicon-pandas-plain colored"></span><span
+                                        class="devicon-streamlit-plain colored"></span><span
+                                        class="devicon-git-plain colored"></span>
+                                </strong>
                                 <text>
-                                    Desenvolvi um jogo de perguntas e respostas como um projeto enquanto cursava a ETEC,
-                                    utilizando C# e .NET Framework. O jogo foi projetado para testar meus conhecimentos
-                                    e conceitos que eu havia aprendido, sendo educativo e divertido, com uma interface
-                                    amigável e intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
+                                    Dashboard interativo capaz de ler planilhas Excel, gerar gráficos automáticos e
+                                    exportá-los em PNG. Desenvolvido em Python com Pandas, Matplotlib e Streamlit,
+                                    leitura de arquivos via OpenPyXL e versionamento do código com Git.
                                 </text>
                             </div>
                         </li>
                         <li class="projeto">
                             <div class="imagem">
-                                <img src="./IMG/capa_genio.png" alt="Capa projeto">
+                                <img src="./IMG/logos.png" alt="Algumas Logos que já fiz">
                             </div>
+                            <hr>
                             <div class="texto-limitado">
-                                <span class="seta">▼</span>
-                                <strong>GÊNIO QUIZ ETEC</strong>
+                                <strong class="projeto-titulo">
+                                    DESIGN GRÁFICO <br> <span
+                                        class="devicon-photoshop-plain colored"></span><span
+                                        class="devicon-illustrator-plain colored"></span>
+                                </strong>
                                 <text>
-                                    Desenvolvi um jogo de perguntas e respostas como um projeto enquanto cursava a ETEC,
-                                    utilizando C# e .NET Framework. O jogo foi projetado para testar meus conhecimentos
-                                    e conceitos que eu havia aprendido, sendo educativo e divertido, com uma interface
-                                    amigável e intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
+                                    Essas são algumas logos que já fiz trabalhando com design, mas também faço manipulação e edição de imagens de imagens além de criação de vetores, utilizando Photoshop e Illustrator.
                                 </text>
                             </div>
                         </li>
-                        <li class="projeto">
-                            <div class="imagem">
-                                <img src="./IMG/capa_genio.png" alt="Capa projeto">
-                            </div>
-                            <div class="texto-limitado">
-                                <span class="seta">▼</span>
-                                <strong>GÊNIO QUIZ ETEC</strong>
-                                <text>
-                                    Desenvolvi um jogo de perguntas e respostas como um projeto enquanto cursava a ETEC,
-                                    utilizando C# e .NET Framework. O jogo foi projetado para testar meus conhecimentos
-                                    e conceitos que eu havia aprendido, sendo educativo e divertido, com uma interface
-                                    amigável e intuitiva. Créditos a André Birnfeld que é o criador do jogo original.
-                                </text>
-                            </div>
-                        </li>
-                    </ul -->
+                    </ul>
                 </div>
             </div>
         </div>
+    </section>
+    <section class="contato">
+        <div class="conteudo">
+            <div class="texto">
+                <h1 id="titulo">CONTATO</h1>
+                <p>
+                    Se você deseja entrar em contato comigo, seja para discutir oportunidades de trabalho, colaborações
+                    ou apenas para trocar ideias, sinta-se à vontade para me enviar uma mensagem.
+                </p>
+                <div class="links">
+                    <p class=" link"><a href=mailto:juanborsacchi2006@gmail.com id="icone">📩</a> EMAIL:
+                        juanborsacchi@gmail.com <a></a></p>
+
+                    <p class="link"><a class="fa-brands fa-whatsapp" href="https://w.app/juan-borsacchi"
+                            id="icone"></a>Telefone:(+55) 11 9 8100-2371</p>
+
+
+                    <p class="link"><a href="https://www.linkedin.com/in/juan-borsacchi"
+                            class="devicon-linkedin-plain colored" id="icone"></a> Conecte-se comigo
+                    </p>
+                </div>
     </section>
     <!-- Botão voltar ao topo -->
     <button onclick="voltarAoTopo()" class="botao-topo">↑</button>
 
     <script>
-        const textos = document.querySelectorAll('.texto-limitado');
-
-        textos.forEach(texto => {
-            texto.addEventListener('click', e => {
-                e.stopPropagation(); // Impede o fechamento imediato
-                const jaAberto = texto.classList.contains('expandido');
-                textos.forEach(t => t.classList.remove('expandido'));
-                if (!jaAberto) texto.classList.add('expandido');
-            });
-        });
-
-        document.addEventListener('click', function (event) {
-            if (!event.target.closest('.texto-limitado')) {
-                textos.forEach(t => t.classList.remove('expandido'));
-            }
-        });
-
-        // Carrossel scroll com botões
-        const carrossel = document.getElementById('carrosselProjetos');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-
-        prevBtn.addEventListener('click', () => {
-            carrossel.scrollBy({ left: -340, behavior: 'smooth' });
-        });
-
-        nextBtn.addEventListener('click', () => {
-            carrossel.scrollBy({ left: 340, behavior: 'smooth' });
-        });
-
 
         // Voltar para o topo ao clicar no botão
         function voltarAoTopo() {
@@ -766,7 +792,7 @@
 
         // Forçar o scroll para o topo ao recarregar
         window.onbeforeunload = function () {
-         window.scrollTo(0, 0);
+            window.scrollTo(0, 0);
         };
     </script>
 </body>
